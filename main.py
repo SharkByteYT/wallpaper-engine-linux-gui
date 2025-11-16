@@ -187,7 +187,7 @@ class CliFrontend(Gtk.Application):
     def populate_images(self):
         # Get UI scale (fallback to 1 if not set)
         scale = self.window.get_scale_factor() if hasattr(self.window, "get_scale_factor") else 1
-        target_width = 60 * scale
+        target_width = 600 * scale
 
         # Get workshop path from config
         workshop_base = get_walls_path()
@@ -242,7 +242,7 @@ class CliFrontend(Gtk.Application):
                     width = pixbuf.get_width()
                     height = pixbuf.get_height()
                     scale_factor = target_width / width
-                    new_height = max(5, int(height * scale_factor))
+                    new_height = max(1, int(height * scale_factor))
                     scaled_pixbuf = pixbuf.scale_simple(target_width, new_height, GdkPixbuf.InterpType.BILINEAR)
                     image = Gtk.Image.new_from_pixbuf(scaled_pixbuf)
                     image.set_size_request(target_width, new_height)
