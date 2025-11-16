@@ -105,7 +105,7 @@ install_suse() {
 }
 
 case "$OS_ID" in
-    arch|manjaro|endeavouros)
+    arch|manjaro|endeavouros|cachyos)
         install_arch
         ;;
     debian|ubuntu|linuxmint|pop)
