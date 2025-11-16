@@ -146,7 +146,7 @@ fi
 
 mkdir -p ~/.local/bin
 touch ~/.local/bin/welg
-echo "#!/bin/bash \n python3 main.py \"$@\"" > ~/.local/bin/welg
+echo "#!/bin/bash \n  ~/.local/share/wallpaperengine-linux/python3 main.py \"$@\"" > ~/.local/bin/welg
 
 echo "You can now run the wallpaper engine linux from the applications menu."
 
