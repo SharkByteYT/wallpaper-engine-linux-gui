@@ -187,7 +187,7 @@ class CliFrontend(Gtk.Application):
     def populate_images(self):
         # Get UI scale (fallback to 1 if not set)
         scale = self.window.get_scale_factor() if hasattr(self.window, "get_scale_factor") else 100
-        target_width = 60 * scale
+        target_width = 900 * scale
 
         # Get workshop path from config
         workshop_base = get_walls_path()
