@@ -186,8 +186,8 @@ class CliFrontend(Gtk.Application):
 
     def populate_images(self):
         # Get UI scale (fallback to 1 if not set)
-        scale = self.window.get_scale_factor() if hasattr(self.window, "get_scale_factor") else 100
-        target_width = 900 * scale
+        scale = self.window.get_scale_factor() if hasattr(self.window, "get_scale_factor") else 1
+        target_width = 60 * scale
 
         # Get workshop path from config
         workshop_base = get_walls_path()
@@ -242,7 +242,7 @@ class CliFrontend(Gtk.Application):
                     pixbuf = loader.get_static_image()
                     width = pixbuf.get_width()
                     height = pixbuf.get_height()
-                    scale_factor = target_width / width
+                    scale_factor = target_width = width
                     new_height = max(1, int(height * scale_factor))
                     scaled_pixbuf = pixbuf.scale_simple(target_width, new_height, GdkPixbuf.InterpType.BILINEAR)
                     image = Gtk.Image.new_from_pixbuf(scaled_pixbuf)
@@ -251,7 +251,7 @@ class CliFrontend(Gtk.Application):
                     pixbuf = GdkPixbuf.Pixbuf.new_from_file(img_path)
                     width = pixbuf.get_width()
                     height = pixbuf.get_height()
-                    scale_factor = target_width / width
+                    scale_factor = target_width = width
                     new_height = max(1, int(height * scale_factor))
                     scaled_pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_path, width=target_width, height=new_height, preserve_aspect_ratio=True)
                     image = Gtk.Image.new_from_pixbuf(scaled_pixbuf)
@@ -355,7 +355,7 @@ class CliFrontend(Gtk.Application):
                 pixbuf = loader.get_static_image()
                 width = pixbuf.get_width()
                 height = pixbuf.get_height()
-                scale_factor = target_width / width
+                scale_factor = target_width = width
                 new_height = max(1, int(height * scale_factor))
                 scaled_pixbuf = pixbuf.scale_simple(target_width, new_height, GdkPixbuf.InterpType.BILINEAR)
                 self.selected_image_preview.set_from_pixbuf(scaled_pixbuf)
@@ -364,7 +364,7 @@ class CliFrontend(Gtk.Application):
                 pixbuf = GdkPixbuf.Pixbuf.new_from_file(img_path)
                 width = pixbuf.get_width()
                 height = pixbuf.get_height()
-                scale_factor = target_width / width
+                scale_factor = target_width = width
                 new_height = max(1, int(height * scale_factor))
                 scaled_pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_path, width=target_width, height=new_height, preserve_aspect_ratio=True)
                 self.selected_image_preview.set_from_pixbuf(scaled_pixbuf)
