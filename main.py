@@ -245,16 +245,16 @@ class CliFrontend(Gtk.Application):
                     new_height = max(1, int(height * scale_factor))
                     scaled_pixbuf = pixbuf.scale_simple(target_width, new_height, GdkPixbuf.InterpType.BILINEAR)
                     image = Gtk.Image.new_from_pixbuf(scaled_pixbuf)
-                    image.set_size_request(400, 400)
+                    image.set_size_request(target_width, new_height)
                 else:
                     pixbuf = GdkPixbuf.Pixbuf.new_from_file(img_path)
                     width = pixbuf.get_width()
                     height = pixbuf.get_height()
                     scale_factor = target_width / width
                     new_height = max(1, int(height * scale_factor))
-                    scaled_pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_path, 400, 400, preserve_aspect_ratio=True)
+                    scaled_pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_path, width=target_width, height=new_height, preserve_aspect_ratio=True)
                     image = Gtk.Image.new_from_pixbuf(scaled_pixbuf)
-                    image.set_size_request(400, 400)
+                    image.set_size_request(target_width, new_height)
 
                 button = Gtk.Button()
                 button.set_child(image)
@@ -358,16 +358,16 @@ class CliFrontend(Gtk.Application):
                 new_height = max(1, int(height * scale_factor))
                 scaled_pixbuf = pixbuf.scale_simple(target_width, new_height, GdkPixbuf.InterpType.BILINEAR)
                 self.selected_image_preview.set_from_pixbuf(scaled_pixbuf)
-                self.selected_image_preview.set_size_request(400, 400)
+                self.selected_image_preview.set_size_request(target_width, new_height)
             else:
                 pixbuf = GdkPixbuf.Pixbuf.new_from_file(img_path)
                 width = pixbuf.get_width()
                 height = pixbuf.get_height()
                 scale_factor = target_width / width
                 new_height = max(1, int(height * scale_factor))
-                scaled_pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_path, 400, 400, preserve_aspect_ratio=True)
+                scaled_pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(img_path, width=target_width, height=new_height, preserve_aspect_ratio=True)
                 self.selected_image_preview.set_from_pixbuf(scaled_pixbuf)
-                self.selected_image_preview.set_size_request(400, 400)
+                self.selected_image_preview.set_size_request(target_width, new_height)
         except Exception:
             self.selected_image_preview.clear()
 
