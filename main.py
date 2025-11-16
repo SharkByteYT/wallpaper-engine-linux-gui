@@ -242,7 +242,7 @@ class CliFrontend(Gtk.Application):
                     width = pixbuf.get_width()
                     height = pixbuf.get_height()
                     scale_factor = target_width / width
-                    new_height = max(1, int(height * scale_factor))
+                    new_height = max(5, int(height * scale_factor))
                     scaled_pixbuf = pixbuf.scale_simple(target_width, new_height, GdkPixbuf.InterpType.BILINEAR)
                     image = Gtk.Image.new_from_pixbuf(scaled_pixbuf)
                     image.set_size_request(target_width, new_height)
