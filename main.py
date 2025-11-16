@@ -236,6 +236,7 @@ class CliFrontend(Gtk.Application):
                         continue
 
                 # Render the preview image
+                target_width = 1000
                 if img_path.lower().endswith(".gif"):
                     loader = GdkPixbuf.PixbufAnimation.new_from_file(img_path)
                     pixbuf = loader.get_static_image()
@@ -348,7 +349,7 @@ class CliFrontend(Gtk.Application):
                 return
 
             # Render the preview image
-            target_width = 100
+            target_width = 1000
             if img_path.lower().endswith(".gif"):
                 loader = GdkPixbuf.PixbufAnimation.new_from_file(img_path)
                 pixbuf = loader.get_static_image()
