@@ -187,7 +187,7 @@ class CliFrontend(Gtk.Application):
     def populate_images(self):
         # Get UI scale (fallback to 1 if not set)
         scale = self.window.get_scale_factor() if hasattr(self.window, "get_scale_factor") else 1
-        target_width = 600 * scale
+        target_width = 60 * scale
 
         # Get workshop path from config
         workshop_base = get_walls_path()
@@ -348,7 +348,7 @@ class CliFrontend(Gtk.Application):
                 return
 
             # Render the preview image
-            target_width = 200
+            target_width = 100
             if img_path.lower().endswith(".gif"):
                 loader = GdkPixbuf.PixbufAnimation.new_from_file(img_path)
                 pixbuf = loader.get_static_image()
